@@ -1,0 +1,124 @@
+﻿@page
+@model WebAppProject.Pages.Shoes.IndexModel
+@{
+    ViewData["Title"] = "Каталог обуви";
+}
+
+<h2 class="mb-4">Каталог обуви</h2>
+
+<form method="get" class="row g-3 mb-4">
+    <div class="col-md-4">
+        <input type="text" name="ShoeDescription" value="@Model.ShoeDescription"
+               placeholder="Поиск по описанию..." class="form-control" />
+    </div>
+    <div class="col-md-3">
+        <select name="Maker" class="form-select">
+            <option value="0">Все производители</option>
+            @foreach (var m in Model.Makers)
+            {
+                <option value="@m.MakerId" selected="@(m.MakerId == Model.Maker)">@m.Name</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-2">
+        <input type="number" name="MaxPrice" value="@Model.MaxPrice"
+               placeholder="Цена до" class="form-control" />
+    </div>
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-primary w-100">Применить</button>
+    </div>
+
+    <div class="col-12 mt-2">
+        <label class="me-4">
+            <input type="checkbox" name="IsDiscount" value="true" @(Model.IsDiscount ? "checked" : "") />
+            Только со скидкой
+        </label>
+        <label class="me-4">
+            <input type="checkbox" name="IsInStock" value="true" @(Model.IsInStock ? "checked" : "") />
+            Только в наличии
+        </label>
+
+        <label class="ms-3 me-2">Сортировка:</label>
+        <select name="SortColumn" class="form-select d-inline-block w-auto">
+            <option value="">По умолчанию</option>
+            <option value="name" selected="@(Model.SortColumn == "name")">По названию</option>
+            <option value="vendor" selected="@(Model.SortColumn == "vendor")">По поставщику</option>
+            <option value="price" selected="@(Model.SortColumn == "price")">По цене ↑</option>
+            <option value="price_desc" selected="@(Model.SortColumn == "price_desc")">По цене ↓</option>
+        </select>
+    </div>
+</form>
+
+<div class="row">
+    @if (!Model.Shoe.Any())
+    {
+        <div class="alert alert-info">Товары не найдены</div>
+    }
+    else
+    {
+        foreach (var item in Model.Shoe)
+        {
+            <div class="col-12 mb-3">
+                <div class="card">
+                    <div class="row g-0">
+
+                        <div class="col-md-3">
+                            @{
+                                var imagePath = string.IsNullOrEmpty(item.PhotoName)
+                                ? "~/img/picture.png"
+                                : $"~/img/{item.PhotoName}";
+                            }
+                            <img src="@Url.Content(imagePath)"
+                                 class="img-fluid"/>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Category?.Name — @item.Article</h5>
+                                <p class="card-text">@item.Description</p>
+                                <p class="mb-1">
+                                    Производитель: <strong>@item.Maker?.Name</strong><br>
+                                    Поставщик: <strong>@item.Vendor?.Name</strong><br>
+                                    На складе: <strong>@item.Quantity</strong> шт.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 d-flex align-items-center justify-content-center border-start bg-light">
+                            <div class="text-center">
+                                @if (item.Discount > 0)
+                                {
+                                    <span style="text-decoration: line-through; color: gray;">@item.Price ₽</span>
+                        
+                                    <br>
+                                    <h4 class="text-danger mb-1">
+                                        @Math.Round(item.Price * (1 - item.Discount / 100m), 2) ₽
+                                    </h4>
+                                    <span class="badge bg-danger">-@item.Discount%</span>
+                                }
+                                else
+                                {
+                                    <h4 class="mb-1">@item.Price ₽</h4>
+                                }
+
+                                <button onclick="orderItem(@item.ShoeId)"
+                                        class="btn btn-success mt-3 px-4">
+                                    Заказать
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function orderItem(id) {
+            alert('Товар #' + id + ' добавлен в заказ!');
+        }
+    </script>
+}
