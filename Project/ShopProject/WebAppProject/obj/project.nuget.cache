@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fFxRqsVd6fM=",
+  "dgSpecHash": "rHBcCAcle2s=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\WebAppProject\\WebAppProject.csproj",
+  "projectFilePath": "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\WebAppProject\\WebAppProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gorbu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\gorbu\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",

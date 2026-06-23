@@ -15,12 +15,12 @@ namespace WebApiProject.Controllers
 
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<ActionResult<string>> PostUserAsync(AuthorizationRequset request)
+        public async Task<ActionResult<string>> PostUserAsync(AuthorizationRequest request)
         {
             var token = await _service.AuthorizationUserWithTokenAsync(request);
 
             if (token == null)
-                BadRequest();
+                return Unauthorized("Неверный логин или пароль");       
             return Ok(token);
         }
     }

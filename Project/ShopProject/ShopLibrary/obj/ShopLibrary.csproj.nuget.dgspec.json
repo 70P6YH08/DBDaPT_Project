@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\ShopLibrary\\ShopLibrary.csproj": {}
+    "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\ShopLibrary\\ShopLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\ShopLibrary\\ShopLibrary.csproj": {
+    "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\ShopLibrary\\ShopLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\ShopLibrary\\ShopLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\ShopLibrary\\ShopLibrary.csproj",
         "projectName": "ShopLibrary",
-        "projectPath": "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\ShopLibrary\\ShopLibrary.csproj",
+        "projectPath": "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\ShopLibrary\\ShopLibrary.csproj",
         "packagesPath": "C:\\Users\\gorbu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\ShopLibrary\\obj\\",
+        "outputPath": "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\ShopLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

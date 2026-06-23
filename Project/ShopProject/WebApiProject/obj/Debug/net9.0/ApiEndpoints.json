@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "ShopLibrary.DTOs.AuthorizationRequset",
+        "Type": "ShopLibrary.DTOs.AuthorizationRequest",
         "IsRequired": true
       }
     ],
@@ -88,9 +88,9 @@
     ]
   },
   {
-    "ContainingType": "WebApiProject.Controllers.ShoeController",
-    "Method": "GetShoes",
-    "RelativePath": "api/Shoe",
+    "ContainingType": "WebApiProject.Controllers.ShoesController",
+    "Method": "GetShoesAsync",
+    "RelativePath": "api/Shoes",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -108,16 +108,16 @@
     ]
   },
   {
-    "ContainingType": "WebApiProject.Controllers.ShoeController",
+    "ContainingType": "WebApiProject.Controllers.ShoesController",
     "Method": "PostShoeAsync",
-    "RelativePath": "api/Shoe",
+    "RelativePath": "api/Shoes",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "shoe",
-        "Type": "ShopLibrary.Models.Shoe",
+        "Name": "shoeDto",
+        "Type": "ShopLibrary.DTOs.ShoeDto",
         "IsRequired": true
       }
     ],
@@ -134,9 +134,9 @@
     ]
   },
   {
-    "ContainingType": "WebApiProject.Controllers.ShoeController",
-    "Method": "GetShoeAsync",
-    "RelativePath": "api/Shoe/{article}",
+    "ContainingType": "WebApiProject.Controllers.ShoesController",
+    "Method": "GetShoe",
+    "RelativePath": "api/Shoes/{article}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -160,9 +160,9 @@
     ]
   },
   {
-    "ContainingType": "WebApiProject.Controllers.ShoeController",
+    "ContainingType": "WebApiProject.Controllers.ShoesController",
     "Method": "PutShoeAsync",
-    "RelativePath": "api/Shoe/{id}",
+    "RelativePath": "api/Shoes/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -173,17 +173,17 @@
         "IsRequired": true
       },
       {
-        "Name": "shoe",
-        "Type": "ShopLibrary.Models.Shoe",
+        "Name": "shoeDto",
+        "Type": "ShopLibrary.DTOs.ShoeDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApiProject.Controllers.ShoeController",
+    "ContainingType": "WebApiProject.Controllers.ShoesController",
     "Method": "DeleteShoe",
-    "RelativePath": "api/Shoe/{id}",
+    "RelativePath": "api/Shoes/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

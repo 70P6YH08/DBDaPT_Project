@@ -8,7 +8,6 @@ namespace ShopLibrary.Options
 {
     public class AuthorizationOptions
     {
-        public static readonly string secretKey = "shop-super-secret-key!123!123!123";
         public static readonly string issuer = "shop-server";
         public static readonly string audience = "shop-client";
         public static readonly int lifeTime = 15;

@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ShopLibrary.Contexts;
 using ShopLibrary.DTOs;
@@ -10,15 +11,16 @@ using ShopLibrary.Options;
 
 namespace ShopLibrary.Services
 {
-    public class AuthorizationService(ProjectDbContext context)
+    public class AuthorizationService(ProjectDbContext context, IConfiguration configuration)
     {
+        private readonly IConfiguration _configuration = configuration;
 
         private readonly ProjectDbContext _context = context;
 
         private bool VerifyPassword(string password, string passwordHash)
             => BCrypt.Net.BCrypt.Verify(password, passwordHash);
 
-        public async Task<User?> AuthorizationUserAsync(AuthorizationRequset request)
+        public async Task<string?> AuthorizationUserWithTokenAsync(AuthorizationRequest request)
         {
             string login = request.Login;
             string password = request.Password;
@@ -27,44 +29,37 @@ namespace ShopLibrary.Services
                 return null;
 
             var user = await GetUserByLoginAsync(login);
-            if (user is null)
+            if (user == null)
                 return null;
 
-            if (!VerifyPassword(password, user.Password))
-                return null;
-            return user;
+            if (VerifyPassword(password, user.Password))
+                return await GenerateToken(user);
+            return null;
         }
 
-        public async Task<string?> AuthorizationUserWithTokenAsync(AuthorizationRequset request)
-        {
-            string login = request.Login;
-            string password = request.Password;
-
-            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
-                return null;
-
-            var user = await GetUserByLoginAsync(login);
-            if (user is null)
-                return null;
-
-            return VerifyPassword(password, user.Password) ? await GenerateToken(user) : null;
-        }
-
-        private async Task<string> GenerateToken(User user)
+        private async Task<string?> GenerateToken(User user)
         {
             int id = user.UserId;
             string login = user.Login;
 
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(AuthorizationOptions.secretKey));
+            var secretKey = _configuration.GetSection("JWT")["SecretKey"];
+
+            if (string.IsNullOrEmpty(secretKey))
+                throw new InvalidOperationException("Нет секретного ключа!");
+
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var userRole = await GetUserRoleByLoginAsync(login);
 
+            if (userRole == null)
+                return null;
+
             var claims = new Claim[]
             {
-                    new ("id", id.ToString()),
-                    new ("login", login),
-                    new ("role", userRole.Name),
+                new (ClaimTypes.NameIdentifier, id.ToString()),
+                new (ClaimTypes.Name, login),
+                new (ClaimTypes.Role, userRole.Name),
             };
 
             var token = new JwtSecurityToken(

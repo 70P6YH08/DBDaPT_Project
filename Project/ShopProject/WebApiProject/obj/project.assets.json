@@ -7492,11 +7492,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\WebApiProject\\WebApiProject.csproj",
+      "projectUniqueName": "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\WebApiProject\\WebApiProject.csproj",
       "projectName": "WebApiProject",
-      "projectPath": "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\WebApiProject\\WebApiProject.csproj",
+      "projectPath": "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\WebApiProject\\WebApiProject.csproj",
       "packagesPath": "C:\\Users\\gorbu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\WebApiProject\\obj\\",
+      "outputPath": "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\WebApiProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7517,8 +7517,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\ShopLibrary\\ShopLibrary.csproj": {
-              "projectPath": "C:\\Users\\gorbu\\Desktop\\Финальный проект по ТРиЗБД\\Проект\\ShopProject\\ShopLibrary\\ShopLibrary.csproj"
+            "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\ShopLibrary\\ShopLibrary.csproj": {
+              "projectPath": "C:\\Users\\gorbu\\Desktop\\All\\collage\\3year1semestr\\ТРиЗБД\\Проект\\Project\\ShopProject\\ShopLibrary\\ShopLibrary.csproj"
             }
           }
         }

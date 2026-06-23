@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace ShopLibrary.Models;
 
@@ -31,11 +32,15 @@ public partial class Shoe
 
     public string? PhotoName { get; set; }
 
+    [JsonIgnore]
     public virtual Category Category { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual Maker Maker { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<ShoeOrder> ShoeOrders { get; set; } = new List<ShoeOrder>();
 
+    [JsonIgnore]
     public virtual Vendor Vendor { get; set; } = null!;
 }

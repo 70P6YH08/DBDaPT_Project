@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopLibrary.DTOs
 {
-    public class AuthorizationRequset(string login, string password)
+    public class AuthorizationRequest(string login, string password)
     {
         public string Login { get; set; } = login;
         public string Password { get; set; } = password;

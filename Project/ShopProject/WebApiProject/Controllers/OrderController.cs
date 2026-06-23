@@ -23,8 +23,6 @@ namespace WebApiProject.Controllers
                 .Where(o => o.User.Login == login)
                 .ToListAsync();
 
-            if (orders == null)
-                return NotFound();
             return Ok(OrderExtension.ToDtos(orders));
         }
 
@@ -38,9 +36,9 @@ namespace WebApiProject.Controllers
                 return NotFound();
 
             if (deliveryDate == null)
-                order.DeliveryDate = DateOnly.FromDateTime(DateTime.Now);
+                order.DeliveryDate = DateTime.Now;
             else
-                order.DeliveryDate = deliveryDate;
+                order.DeliveryDate = deliveryDate.Value.ToDateTime(new TimeOnly(0));
 
             order.IsFinished = isFinished;
 
